@@ -9,7 +9,7 @@ const Signup = () => {
       <Head>
         <title>회원가입 | NodeBird</title>
       </Head>
-      <AppLayout>회원가입</AppLayout>
+      <AppLayout>회원가입 페이지</AppLayout>
     </>
   );
 };

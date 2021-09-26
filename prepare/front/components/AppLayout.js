@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import { Menu } from "antd";
+import { Col, Input, Menu, Row } from "antd";
 
 const AppLayout = ({ children }) => {
   return (
@@ -17,13 +17,32 @@ const AppLayout = ({ children }) => {
             <a>프로필</a>
           </Link>
         </Menu.Item>
+        <Menu.Item key="search">
+          <Input.Search enterButton style={{ verticalAlign: "middle" }} />
+        </Menu.Item>
         <Menu.Item key="signup">
           <Link href="/signup">
             <a>회원가입</a>
           </Link>
         </Menu.Item>
       </Menu>
-      {children}
+      <Row gutter={8}>
+        <Col xs={24} md={6}>
+          왼쪽메뉴
+        </Col>
+        <Col xs={24} md={12}>
+          {children}
+        </Col>
+        <Col xs={24} md={6}>
+          <a
+            href="http://www.drawyourmind.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            made by drawyourmind
+          </a>
+        </Col>
+      </Row>
     </div>
   );
 };
