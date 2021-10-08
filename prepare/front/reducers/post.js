@@ -45,13 +45,15 @@ export const addPost = {
 
 const dummyPost = {
   id: 2,
-  content: "더미데이터입니다.",
   User: {
     id: 1,
     nickname: "무벅이2",
   },
-  ImagePaths: [],
+  content: "더미데이터입니다.",
+  Images: [],
   Comments: [],
+  ImagePaths: [],
+  postAdded: false,
 };
 
 const reducer = (state = initialState, action) => {
