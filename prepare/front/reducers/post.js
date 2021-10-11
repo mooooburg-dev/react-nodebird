@@ -9,13 +9,13 @@ export const initialState = {
       content: "첫 번째 게시글 #해시태그 #익스프레스",
       Images: [
         {
-          src: "https://dummyimage.com/300x300/000/fff",
+          src: "https://dummyimage.com/300x300/000/ccc",
         },
         {
-          src: "https://dummyimage.com/300x300/333/fff",
+          src: "https://dummyimage.com/300x300/333/ccc",
         },
         {
-          src: "https://dummyimage.com/300x300/666/fff",
+          src: "https://dummyimage.com/300x300/666/ccc",
         },
       ],
       Comments: [
