@@ -36,7 +36,7 @@ export const UNFOLLOW_FAILURE = "UNFOLLOW_FAILURE";
 
 const dummyUser = (data) => ({
   ...data,
-  ninename: "무벅이2",
+  nickname: "무벅이2",
   id: 1,
   Post: [],
   Followings: [],
