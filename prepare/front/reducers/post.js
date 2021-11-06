@@ -1,3 +1,4 @@
+import { ConsoleSqlOutlined } from "@ant-design/icons";
 import shortid from "shortid";
 
 export const initialState = {
@@ -11,24 +12,31 @@ export const initialState = {
       content: "첫 번째 게시글 #해시태그 #익스프레스",
       Images: [
         {
+          id: shortid.generate(),
           src: "https://dummyimage.com/300x300/000/ccc",
         },
         {
+          id: shortid.generate(),
           src: "https://dummyimage.com/300x300/333/ccc",
         },
         {
+          id: shortid.generate(),
           src: "https://dummyimage.com/300x300/666/ccc",
         },
       ],
       Comments: [
         {
+          id: shortid.generate(),
           User: {
+            id: shortid.generate(),
             nickname: "neo",
           },
           content: "우와 오랜만이군요!",
         },
         {
+          id: shortid.generate(),
           User: {
+            id: shortid.generate(),
             nickname: "jun",
           },
           content: "화이팅입니다!",
@@ -39,6 +47,9 @@ export const initialState = {
   imagePaths: [],
   addPostLoading: false,
   addPostDone: false,
+  removePostError: null,
+  removePostLoading: false,
+  removePostDone: false,
   addPostError: null,
   addCommentLoading: false,
   addCommentDone: false,
@@ -48,6 +59,10 @@ export const initialState = {
 export const ADD_POST_REQUEST = "ADD_POST_REQUEST";
 export const ADD_POST_SUCCESS = "ADD_POST_SUCCESS";
 export const ADD_POST_FAILURE = "ADD_POST_FAILURE";
+
+export const REMOVE_POST_REQUEST = "REMOVE_POST_REQUEST";
+export const REMOVE_POST_SUCCESS = "REMOVE_POST_SUCCESS";
+export const REMOVE_POST_FAILURE = "REMOVE_POST_FAILURE";
 
 export const ADD_COMMENT_REQUEST = "ADD_COMMENT_REQUEST";
 export const ADD_COMMENT_SUCCESS = "ADD_COMMENT_SUCCESS";
@@ -64,8 +79,8 @@ export const addComment = (data) => ({
 });
 
 const dummyPost = (data) => ({
-  id: shortid.generate(),
-  content: data,
+  id: data.id,
+  content: data.content,
   User: {
     id: 1,
     nickname: "무벅이2",
@@ -106,6 +121,27 @@ const reducer = (state = initialState, action) => {
         ...state,
         addPostLoading: false,
         addPostError: true,
+      };
+
+    case REMOVE_POST_REQUEST:
+      return {
+        ...state,
+        removePostLoading: true,
+        removePostDone: false,
+        removePostError: null,
+      };
+    case REMOVE_POST_SUCCESS:
+      return {
+        ...state,
+        mainPosts: state.mainPosts.filter((v) => v.id !== action.data),
+        removePostLoading: false,
+        removePostDone: true,
+      };
+    case REMOVE_POST_FAILURE:
+      return {
+        ...state,
+        removePostLoading: false,
+        removePostError: true,
       };
 
     case ADD_COMMENT_REQUEST:
