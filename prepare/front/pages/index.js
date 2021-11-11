@@ -9,7 +9,9 @@ import { useForm } from "rc-field-form";
 const Home = () => {
   const dispatch = useDispatch();
   const { me } = useSelector((state) => state.user);
-  const { mainPosts, hasMorePost } = useSelector((state) => state.post);
+  const { mainPosts, hasMorePosts, loadPostsLoading } = useSelector(
+    (state) => state.post
+  );
 
   useEffect(() => {
     dispatch({
@@ -20,10 +22,10 @@ const Home = () => {
   useEffect(() => {
     function onScroll() {
       if (
-        window.scrollY + document.documentElement.clientHeight ===
-        document.documentElement.scrollHeight
+        window.scrollY + document.documentElement.clientHeight >
+        document.documentElement.scrollHeight - 300
       ) {
-        if (hasMorePost) {
+        if (hasMorePosts && !loadPostsLoading) {
           dispatch({
             type: LOAD_POSTS_REQUEST,
           });
@@ -34,7 +36,7 @@ const Home = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [hasMorePosts, loadPostsLoading]);
 
   return (
     <AppLayout>
