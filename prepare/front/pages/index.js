@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import AppLayout from "../components/AppLayout";
-import PostForm from "../components/PostForm";
-import PostCard from "../components/PostCard";
-import { LOAD_POSTS_REQUEST } from "../reducers/post";
-import { useForm } from "rc-field-form";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import AppLayout from '../components/AppLayout';
+import PostForm from '../components/PostForm';
+import PostCard from '../components/PostCard';
+import { LOAD_POSTS_REQUEST } from '../reducers/post';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -13,6 +12,7 @@ const Home = () => {
     (state) => state.post
   );
 
+  // 최초 POST 로드
   useEffect(() => {
     dispatch({
       type: LOAD_POSTS_REQUEST,
@@ -32,9 +32,9 @@ const Home = () => {
         }
       }
     }
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, [hasMorePosts, loadPostsLoading]);
 

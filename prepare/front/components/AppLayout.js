@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Link from "next/link";
-import { Col, Input, Menu, Row } from "antd";
-import styled from "styled-components";
-import UserProfile from "../components/UserProfile";
-import LoginForm from "../components/LoginForm";
-import { useSelector } from "react-redux";
-import { createGlobalStyle } from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import { Col, Input, Menu, Row } from 'antd';
+import styled from 'styled-components';
+import UserProfile from '../components/UserProfile';
+import LoginForm from '../components/LoginForm';
+import { useSelector } from 'react-redux';
+import { createGlobalStyle } from 'styled-components';
 
 const Global = createGlobalStyle`
   .ant-row {
@@ -24,7 +24,7 @@ const Global = createGlobalStyle`
 `;
 
 const SearchInput = styled(Input.Search)`
-  vertical-align: "middle";
+  vertical-align: 'middle';
 `;
 
 const AppLayout = ({ children }) => {

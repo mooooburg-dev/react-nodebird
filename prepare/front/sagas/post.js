@@ -1,6 +1,6 @@
-import { all, delay, fork, put, takeLatest } from "@redux-saga/core/effects";
-import axios from "axios";
-import shortid from "shortid";
+import { all, delay, fork, put, takeLatest } from '@redux-saga/core/effects';
+import axios from 'axios';
+import shortid from 'shortid';
 import {
   ADD_COMMENT_FAILURE,
   ADD_COMMENT_REQUEST,
@@ -15,11 +15,11 @@ import {
   REMOVE_POST_FAILURE,
   REMOVE_POST_REQUEST,
   REMOVE_POST_SUCCESS,
-} from "../reducers/post";
-import { ADD_POST_TO_ME, REMOVE_POST_OF_ME } from "../reducers/user";
+} from '../reducers/post';
+import { ADD_POST_TO_ME, REMOVE_POST_OF_ME } from '../reducers/user';
 
 function loadPostsAPI(data) {
-  return axios.post("/api/loadPosts", data);
+  return axios.post('/api/loadPosts', data);
 }
 
 function* loadPosts(action) {
@@ -37,7 +37,7 @@ function* loadPosts(action) {
 }
 
 function addPostAPI(data) {
-  return axios.post("/api/addPost", data);
+  return axios.post('/api/addPost', data);
 }
 
 function* addPost(action) {
@@ -62,7 +62,7 @@ function* addPost(action) {
 }
 
 function removePostAPI(data) {
-  return axios.delete("/api/removePost", data);
+  return axios.delete('/api/removePost', data);
 }
 
 function* removePost(action) {

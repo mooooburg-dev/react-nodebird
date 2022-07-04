@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from "react";
-import Head from "next/head";
-import { Button, Checkbox, Form, Input } from "antd";
-import styled from "styled-components";
-import AppLayout from "../components/AppLayout";
-import useInput from "../components/hooks/useInput";
-import { SIGN_UP_REQUEST } from "../reducers/user";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useCallback, useState } from 'react';
+import Head from 'next/head';
+import { Button, Checkbox, Form, Input } from 'antd';
+import styled from 'styled-components';
+import AppLayout from '../components/AppLayout';
+import useInput from '../components/hooks/useInput';
+import { SIGN_UP_REQUEST } from '../reducers/user';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ErrorMessage = styled.div`
   color: red;
@@ -14,10 +14,10 @@ const ErrorMessage = styled.div`
 const Signup = () => {
   const dispatch = useDispatch();
   const { signUpLoading } = useSelector((state) => state.user);
-  const [email, onChangeEmail] = useInput("");
-  const [nickname, onChangeNickname] = useInput("");
-  const [password, onChangePassword] = useInput("");
-  const [passwordCheck, setPasswordCheck] = useState("");
+  const [email, onChangeEmail] = useInput('');
+  const [nickname, onChangeNickname] = useInput('');
+  const [password, onChangePassword] = useInput('');
+  const [passwordCheck, setPasswordCheck] = useState('');
   const [passwordError, setPasswordError] = useState(false);
   const onChangePasswordCheck = useCallback(
     (e) => {
@@ -26,7 +26,7 @@ const Signup = () => {
     },
     [password]
   );
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState('');
   const [termError, setTermError] = useState(false);
   const onChangeTerm = useCallback((e) => {
     setTerm(e.target.checked);
@@ -95,7 +95,7 @@ const Signup = () => {
             type="password"
           />
           {passwordError && (
-            <ErrorMessage style={{ color: "red" }}>
+            <ErrorMessage style={{ color: 'red' }}>
               비밀번호가 일치하지 않습니다.
             </ErrorMessage>
           )}
@@ -105,7 +105,7 @@ const Signup = () => {
             동의합니다.
           </Checkbox>
           {termError && (
-            <ErrorMessage style={{ color: "red" }}>
+            <ErrorMessage style={{ color: 'red' }}>
               약관에 동의하셔야 합니다.
             </ErrorMessage>
           )}
