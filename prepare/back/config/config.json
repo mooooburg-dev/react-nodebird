@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "pantagruel",
+    "password": "^pass0912_",
+    "database": "pantagruel_develop",
+    "host": "pantagruel.cafe24.com",
+    "port": "3306",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "pantagruel",
+    "password": "^pass0912_",
+    "database": "pantagruel_test",
+    "host": "pantagruel.cafe24.com",
+    "port": "3306",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "pantagruel",
+    "password": "^pass0912_",
+    "database": "pantagruel_production",
+    "host": "pantagruel.cafe24.com",
+    "port": "3306",
+    "dialect": "mysql"
+  }
+}
