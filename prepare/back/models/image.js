@@ -8,6 +8,8 @@ module.exports = (sequelize, DateTypes) => {
     { charset: 'utf8', collate: 'utf8_general_ci' } // utf4mb4를 넣어주면 이모티콘을 저장할 수 있다.
   );
 
-  Image.associate = (db) => {};
+  Image.associate = (db) => {
+    db.Image.belongsTo(db.Post);
+  };
   return Image;
 };
