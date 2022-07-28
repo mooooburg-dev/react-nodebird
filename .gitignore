@@ -23,5 +23,5 @@ pnpm-debug.log*
 *.sw?
 
 # next.js build output
-.next
+prepare/front/.next
 .env
