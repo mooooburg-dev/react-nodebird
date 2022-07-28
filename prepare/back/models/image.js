@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Image = sequelize.define(
-    'Image',
+    'Nodebird_Image',
     {
       // id가 기본적으로 들어있다.
       source: { type: DataTypes.STRING(200), allowNull: false },

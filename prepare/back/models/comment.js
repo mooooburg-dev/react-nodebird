@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Comment = sequelize.define(
-    'Comment',
+    'Nodebird_Comment',
     {
       // id가 기본적으로 들어있다.
       content: { type: DataTypes.TEXT, allowNull: false },

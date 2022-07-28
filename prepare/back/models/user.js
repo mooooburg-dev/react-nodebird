@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    'User',
+    'Nodebird_User',
     {
       // MySQL에는 users 테이블 생성, id가 기본적으로 들어있다.
       email: { type: DataTypes.STRING(30), allowNull: false, unique: true }, // allowNull: false -> 필수
@@ -13,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = (db) => {
     db.User.hasMany(db.Post);
     db.User.hasMany(db.Comment);
-    db.User.belongsToMany(db.Post, { through: 'Like', as: 'Liked' });
+    db.User.belongsToMany(db.Post, { through: 'Nodebird_Like', as: 'Liked' });
     db.User.belongsToMany(db.User, {
-      through: 'Follow',
+      through: 'Nodebird_Follow',
       as: 'Followers',
       foreignKey: 'FollowingId',
     });
     db.User.belongsToMany(db.User, {
-      through: 'Follow',
+      through: 'Nodebird_Follow',
       as: 'Followings',
       foreignKey: 'FollowerId',
     });

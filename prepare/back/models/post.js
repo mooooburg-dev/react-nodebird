@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Post = sequelize.define(
-    'Post',
+    'Nodebird_Post',
     {
       // id가 기본적으로 들어있다.
       content: { type: DataTypes.TEXT, allowNull: false },
@@ -11,10 +11,10 @@ module.exports = (sequelize, DataTypes) => {
 
   Post.associate = (db) => {
     db.Post.belongsTo(db.User);
-    db.Post.belongsToMany(db.Hashtag);
+    db.Post.belongsToMany(db.Hashtag, { through: 'Nodebird_HashtagPost' });
     db.Post.hasMany(db.Comment);
     db.Post.hasMany(db.Image);
-    db.Post.belongsToMany(db.User, { through: 'Like', as: 'Likers' });
+    db.Post.belongsToMany(db.User, { through: 'Nodebird_Like', as: 'Likers' });
     db.Post.belongsTo(db.Post, { as: 'Retweet' });
   };
   return Post;

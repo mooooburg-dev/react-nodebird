@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Hashtag = sequelize.define(
-    'Hashtag',
+    'Nodebird_Hashtag',
     {
       // id가 기본적으로 들어있다.
       name: { type: DataTypes.STRING(20), allowNull: false },
@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Hashtag.associate = (db) => {
-    db.Hashtag.belongsToMany(db.Post);
+    db.Hashtag.belongsToMany(db.Post, { through: 'Nodebird_PostHashtag' });
   };
   return Hashtag;
 };
