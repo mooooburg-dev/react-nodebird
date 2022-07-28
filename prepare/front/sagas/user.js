@@ -81,14 +81,14 @@ function* unfollow(action) {
   }
 }
 
-function signUpAPI() {
-  return axios.post('/api/signup');
+function signUpAPI(data) {
+  return axios.post('http://localhost:3065/user', data);
 }
 
-function* signUp() {
+function* signUp(action) {
   try {
-    yield delay(1000);
-    // throw new Error("");
+    const result = yield call(signUpAPI, action.data);
+    console.log(result);
     yield put({ type: SIGN_UP_SUCCESS });
   } catch (err) {
     yield put({ type: SIGN_UP_FAILURE, error: err.response.data });

@@ -3,9 +3,9 @@ import Head from 'next/head';
 import { Button, Checkbox, Form, Input } from 'antd';
 import styled from 'styled-components';
 import AppLayout from '../components/AppLayout';
-import useInput from '../components/hooks/useInput';
 import { SIGN_UP_REQUEST } from '../reducers/user';
 import { useDispatch, useSelector } from 'react-redux';
+import useInput from '../hooks/useInput';
 
 const ErrorMessage = styled.div`
   color: red;
