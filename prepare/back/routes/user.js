@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
       nickname: req.body.nickname,
       password: hashedPassword,
     });
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3060');
     res.status(200).send('ok');
   } catch (error) {
     console.error(error);

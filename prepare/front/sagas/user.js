@@ -1,4 +1,11 @@
-import { all, delay, fork, put, takeLatest } from '@redux-saga/core/effects';
+import {
+  all,
+  delay,
+  fork,
+  put,
+  takeLatest,
+  call,
+} from '@redux-saga/core/effects';
 import axios from 'axios';
 import {
   FOLLOW_FAILURE,
@@ -88,7 +95,6 @@ function signUpAPI(data) {
 function* signUp(action) {
   try {
     const result = yield call(signUpAPI, action.data);
-    console.log(result);
     yield put({ type: SIGN_UP_SUCCESS });
   } catch (err) {
     yield put({ type: SIGN_UP_FAILURE, error: err.response.data });
